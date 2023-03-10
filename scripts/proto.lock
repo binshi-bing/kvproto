@@ -18066,6 +18066,26 @@
             ]
           },
           {
+            "name": "GetServiceInfoRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "header",
+                "type": "RequestHeader"
+              }
+            ]
+          },
+          {
+            "name": "GetServiceInfoResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "header",
+                "type": "ResponseHeader"
+              }
+            ]
+          },
+          {
             "name": "TsoRequest",
             "fields": [
               {
@@ -18110,6 +18130,11 @@
           {
             "name": "TSO",
             "rpcs": [
+              {
+                "name": "GetServiceInfo",
+                "in_type": "GetServiceInfoRequest",
+                "out_type": "GetServiceInfoResponse"
+              },
               {
                 "name": "Tso",
                 "in_type": "TsoRequest",

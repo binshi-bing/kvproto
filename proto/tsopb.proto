@@ -14,6 +14,9 @@ option (rustproto.lite_runtime_all) = true;
 option java_package = "org.tikv.kvproto";
 
 service TSO {
+    // GetServiceInfo get service info. It does not require
+    // the cluster_id in request matchs the id of this cluster.
+    rpc GetServiceInfo(GetServiceInfoRequest) returns (GetServiceInfoResponse) {}
     rpc Tso(stream TsoRequest) returns (stream TsoResponse) {}
 }
 
@@ -51,6 +54,14 @@ enum ErrorType {
 message Error {
     ErrorType type = 1;
     string message = 2;
+}
+
+message GetServiceInfoRequest {
+    RequestHeader header = 1;
+}
+
+message GetServiceInfoResponse {
+    ResponseHeader header = 1;
 }
 
 message TsoRequest {
